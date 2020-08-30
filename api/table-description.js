@@ -48,5 +48,6 @@ module.exports = async (req, res) => {
 
   const descriptionArray = tableData.recordMap.collection[collectionId].value.description
 
+  res.setHeader('Cache-Control', 's-maxage=1, stale-while-revalidate')
   res.send(textArrayToHtml(descriptionArray))
 }

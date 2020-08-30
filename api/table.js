@@ -103,6 +103,6 @@ module.exports = async (req, res) => {
     })
   })
 
-
+  res.setHeader('Cache-Control', 's-maxage=1, stale-while-revalidate')
   return res.json(output)
 }

@@ -157,5 +157,7 @@ module.exports = async (req, res) => {
                         .replace(/<\/ol><ol>/g, "")
                         .replace(/<\/ul><ul>/g, "")
                         .replace(/<\/div><div class="checklist">/g, "")
+
+  res.setHeader('Cache-Control', 's-maxage=1, stale-while-revalidate')
   res.send(cleanedHtml)
 }
